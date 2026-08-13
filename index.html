@@ -611,6 +611,26 @@
       object-fit: cover;
     }
 
+    /* Web Site Collage Frame (20% mais estreito + Sombra Suave Colagem) */
+    .web-site-collage {
+      width: 80%;
+      margin: 50px auto 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 6px 24px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #141414;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+
+    .web-site-collage:hover {
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 45px 110px rgba(0, 0, 0, 0.7);
+    }
+
     /* ==========================================================================
        WEB PERFORMANCE & GTMETRIX COMPONENT STYLES
        ========================================================================== */
@@ -718,15 +738,15 @@
     /* Web Vitals Grid */
     .vitals-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
 
     .vital-card {
       background: #1A1A1A;
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 18px;
-      padding: 26px 28px;
+      padding: 24px 22px;
       transition: transform 0.35s ease, border-color 0.35s ease;
     }
 
@@ -746,13 +766,13 @@
 
     .vital-value {
       font-family: 'Outfit', sans-serif;
-      font-size: 34px;
+      font-size: 32px;
       font-weight: 800;
       color: #27C93F;
     }
 
     .vital-desc {
-      font-size: 13px;
+      font-size: 12px;
       color: #777777;
       margin-top: 6px;
       line-height: 1.4;
@@ -781,6 +801,15 @@
       max-width: 680px;
       margin: 0 auto 42px;
       line-height: 1.6;
+    }
+
+    .footer-action-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
     }
 
     .visit-site-button {
@@ -813,6 +842,52 @@
       stroke: currentColor;
     }
 
+    .footer-qr-container {
+      margin-top: 45px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer-qr-card {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 24px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .footer-qr-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65);
+    }
+
+    .footer-qr-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .footer-qr-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      color: #1A1A1A;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-qr-sub {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 11px;
+      color: #666666;
+      margin-top: 1px;
+    }
+
     .footer-brand {
       margin-top: 60px;
       font-family: 'Outfit', sans-serif;
@@ -825,23 +900,6 @@
 </head>
 
 <body>
-
-  <!-- ==========================================================================
-       1. HERO SECTION (Clean Fundo Claro)
-       ========================================================================== -->
-  <section class="section section-light" id="hero">
-    <div class="container">
-      <div class="hero-header">
-        <p class="hero-subtitle">Brand Identity & Web Design Case Study</p>
-      </div>
-
-      <!-- Imagem Principal / Logo Fundo Claro -->
-      <div class="hero-image-wrapper">
-        <img src="log_fundo_claro.webp" alt="UNA TECNOLOGIA PREFABBRICATE — Logo Fundo Claro" class="hero-logo-img">
-      </div>
-    </div>
-  </section>
-
 
   <!-- ==========================================================================
        2. ESTRUTURANDO A BASE VISUAL (Fundo Escuro)
@@ -1018,6 +1076,11 @@
         <img src="527shots_so.png" alt="Plataforma Digital UNA TECNOLOGIA PREFABBRICATE — Mockup" class="web-shots-img">
       </div>
 
+      <!-- Imagem Completa do Site (UNA-site.jpg) com Estilo Colagem -->
+      <div class="web-site-collage">
+        <img src="UNA-site.jpg" alt="Visão Completa do Site UNA TECNOLOGIA PREFABBRICATE" class="web-shots-img">
+      </div>
+
       <!-- Bloco de Performance & Otimização GTmetrix -->
       <div class="performance-block">
         <div class="performance-header">
@@ -1055,7 +1118,7 @@
             </div>
           </div>
 
-          <!-- Web Vitals Grid -->
+          <!-- Web Vitals Grid (Incluindo Card Responsivo Mobile) -->
           <div class="vitals-grid">
             <div class="vital-card">
               <div class="vital-title">Largest Contentful Paint</div>
@@ -1073,6 +1136,12 @@
               <div class="vital-title">Cumulative Layout Shift</div>
               <div class="vital-value">0</div>
               <div class="vital-desc">Estabilidade visual perfeita sem deslocamento de tela</div>
+            </div>
+
+            <div class="vital-card">
+              <div class="vital-title">Design Responsivo</div>
+              <div class="vital-value" style="color: #C06A2C;">100% Mobile</div>
+              <div class="vital-desc">Adaptação fluida para smartphones e tablets</div>
             </div>
           </div>
         </div>
@@ -1101,6 +1170,14 @@
         </svg>
         <span>www.unatecnologia.com.br</span>
       </a>
+
+      <!-- Bloco QR Code Independente (Maior e Centralizado) -->
+      <div class="footer-qr-container">
+        <div class="footer-qr-card">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://unatecnologia.com.br&color=1A1A1A&bgcolor=FFFFFF" alt="QR Code - unatecnologia.com.br" class="footer-qr-img">
+          <span class="footer-qr-title">Escaneie para abrir no celular</span>
+        </div>
+      </div>
 
       <div class="footer-brand">
         desenvolvido por <strong>ARTD-Studio</strong> © CASE STUDY
