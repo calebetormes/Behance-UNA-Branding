@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1400, initial-scale=1.0">
+  <title>UNA TECNOLOGIA PREFABBRICATE — Case Study</title>
+
+  <!-- Google Fonts: Outfit (Titles) & Nunito Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       RESET & BASE STYLES
+       ========================================================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background-color: #2E2E2E;
+      color: #1A1A1A;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Fixed Width Desktop Container (1400px strictly for Behance export) */
+    .container {
+      width: 1400px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY SYSTEM
+       ========================================================================== */
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-title {
+      font-family: 'Outfit', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .badge-dark {
+      background: rgba(192, 106, 44, 0.15);
+      color: #C06A2C;
+      border: 1px solid rgba(192, 106, 44, 0.3);
+    }
+
+    .badge-light {
+      background: rgba(192, 106, 44, 0.1);
+      color: #C06A2C;
+      border: 1px solid rgba(192, 106, 44, 0.25);
+    }
+
+    .badge-accent {
+      background: #C06A2C;
+      color: #FFFFFF;
+    }
+
+    .section-title {
+      font-size: 54px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      font-size: 20px;
+      font-weight: 400;
+      max-width: 820px;
+      opacity: 0.85;
+    }
+
+    /* ==========================================================================
+       IMAGE PLACEHOLDER COMPONENT
+       ========================================================================== */
+    .image-placeholder {
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 30px;
+      color: #666666;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.03);
+    }
+
+    .image-placeholder:hover {
+      transform: translateY(-3px);
+      border-color: rgba(192, 106, 44, 0.4);
+      box-shadow: 0 20px 45px rgba(192, 106, 44, 0.08);
+      color: #C06A2C;
+    }
+
+    .image-placeholder .icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 16px;
+      opacity: 0.6;
+      stroke: #C06A2C;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .image-placeholder:hover .icon {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    /* Dark theme placeholder variation */
+    .section-dark .image-placeholder {
+      background: #242424;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #A0A0A0;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.3);
+    }
+
+    .section-dark .image-placeholder:hover {
+      border-color: rgba(192, 106, 44, 0.5);
+      color: #FFFFFF;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .section-dark .image-placeholder .icon {
+      opacity: 0.5;
+      stroke: #C06A2C;
+    }
+
+    /* ==========================================================================
+       SECTIONS STRUCTURAL LAYOUT
+       ========================================================================== */
+    .section {
+      padding: 120px 0;
+      position: relative;
+      width: 100%;
+    }
+
+    /* Full Bleed Background Classes */
+    .section-dark {
+      background-color: #2E2E2E;
+      color: #FFFFFF;
+    }
+
+    .section-light {
+      background-color: #F7F6F2;
+      color: #1A1A1A;
+    }
+
+    /* ==========================================================================
+       SECTION 1: HERO SECTION (Clean Light Theme)
+       ========================================================================== */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 0;
+      background: #FAF9F5;
+      background-image:
+        radial-gradient(circle at 50% 40%, rgba(192, 106, 44, 0.08) 0%, transparent 70%),
+        linear-gradient(to bottom, #FAF9F5 0%, #F3F2EB 100%);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      position: relative;
+    }
+
+    #hero .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .hero-brand-tag {
+      color: #C06A2C;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: inline-block;
+      padding: 6px 18px;
+      background: rgba(192, 106, 44, 0.08);
+      border-radius: 100px;
+      border: 1px solid rgba(192, 106, 44, 0.2);
+    }
+
+    .hero-title {
+      font-size: 84px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 0.98;
+      color: #1A1A1A;
+      margin-bottom: 20px;
+    }
+
+    .hero-title span {
+      color: #C06A2C;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      font-weight: 700;
+      color: #C06A2C;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin: 0 auto;
+    }
+
+    .hero-image-wrapper {
+      width: 100%;
+      padding: 40px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-logo-img {
+      max-width: 70%;
+      max-height: 480px;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-logo-img:hover {
+      transform: scale(1.03);
+    }
+
+    /* ==========================================================================
+       SECTION 2: CONCEITO E VARIAÇÕES DA MARCA
+       ========================================================================== */
+    .genesis-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .genesis-content {
+      padding-right: 10px;
+    }
+
+    .genesis-title {
+      color: #1A1A1A;
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .genesis-text {
+      font-size: 17px;
+      line-height: 1.65;
+      color: #4A4A4A;
+      font-weight: 400;
+    }
+
+    .genesis-text strong {
+      color: #C06A2C;
+      font-weight: 700;
+    }
+
+    .genesis-meta-card {
+      margin-top: 28px;
+      padding: 18px 24px;
+      background: rgba(0, 0, 0, 0.04);
+      border-left: 3px solid #C06A2C;
+      border-radius: 0 10px 10px 0;
+      display: flex;
+      gap: 24px;
+    }
+
+    .meta-item h5 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888888;
+      margin-bottom: 2px;
+    }
+
+    .meta-item p {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1A1A1A;
+    }
+
+    #genesis {
+      background-color: #FFFFFF;
+    }
+
+    .genesis-image-wrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .genesis-img {
+      width: 100%;
+      height: auto;
+      max-height: 650px;
+      object-fit: contain;
+      display: block;
+      mix-blend-mode: multiply;
+      transition: transform 0.4s ease;
+    }
+
+    .genesis-img:hover {
+      transform: scale(1.02);
+    }
+
+    /* ==========================================================================
+       SECTION 3: ESTRUTURANDO A BASE VISUAL
+       ========================================================================== */
+    .brand-base-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .brand-base-header .section-subtitle {
+      margin: 0 auto;
+      color: #CCCCCC;
+      font-size: 21px;
+      line-height: 1.7;
+    }
+
+    /* Grid layout for base visual evolution */
+    .base-evolution-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 32px;
+    }
+
+    .evolution-logo-col {
+      grid-column: span 12;
+    }
+
+    .logo-wrapper {
+      width: 100%;
+      height: 380px;
+      background-color: #242424;
+      border: 1px solid #3D3D3D;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .logo-img {
+      max-width: 75%;
+      max-height: 220px;
+      width: auto;
+      height: auto;
+      display: block;
+    }
+
+    .evolution-colors-col {
+      grid-column: span 7;
+      background: #242424;
+      border: 1fr solid #3D3D3D;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .block-card-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .block-card-title span {
+      font-size: 14px;
+      color: #C06A2C;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* 5 Color Swatches */
+    .color-swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .swatch-item {
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #1E1E1E;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .swatch-color {
+      height: 130px;
+      width: 100%;
+      position: relative;
+    }
+
+    .swatch-info {
+      padding: 14px 12px;
+      text-align: center;
+    }
+
+    .swatch-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+    }
+
+    .swatch-hex {
+      font-family: monospace;
+      font-size: 13px;
+      color: #A0A0A0;
+    }
+
+    /* Evolution Typography Col */
+    .evolution-typo-col {
+      grid-column: span 5;
+      background: #242424;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .typo-specimen-box {
+      background: #1A1A1A;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .typo-title-specimen {
+      font-family: 'Outfit', sans-serif;
+      font-size: 38px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .typo-title-sub {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      color: #C06A2C;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .typo-body-specimen {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 16px;
+      color: #CCCCCC;
+      line-height: 1.5;
+    }
+
+    .typo-body-sub {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 12px;
+      color: #888888;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    /* ==========================================================================
+       SECTION 4: TANGIBILIZANDO A MARCA
+       ========================================================================== */
+    .tangible-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .tangible-header .section-subtitle {
+      margin: 0 auto;
+      color: #4A4A4A;
+    }
+
+    /* Dynamic Grid Layout (Masonry style mix) */
+    .applications-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
+
+    .grid-item-1 {
+      grid-column: span 7;
+      height: 520px;
+    }
+
+    .grid-item-2 {
+      grid-column: span 5;
+      height: 520px;
+    }
+
+    .grid-item-3 {
+      grid-column: span 4;
+      height: 480px;
+    }
+
+    .grid-item-4 {
+      grid-column: span 4;
+      height: 480px;
+    }
+
+    .grid-item-5 {
+      grid-column: span 4;
+      height: 480px;
+    }
+
+    /* ==========================================================================
+       SECTION 5: O PROJETO WEB
+       ========================================================================== */
+    .web-project-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .web-project-header .section-subtitle {
+      margin: 0 auto;
+      color: #CCCCCC;
+    }
+
+    /* Web Shots Presentation Frame */
+    .web-shots-wrapper {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #141414;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .web-shots-wrapper:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 40px 110px rgba(0, 0, 0, 0.6);
+    }
+
+    .web-shots-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ==========================================================================
+       WEB PERFORMANCE & GTMETRIX COMPONENT STYLES
+       ========================================================================== */
+    .performance-block {
+      margin-top: 100px;
+      padding-top: 80px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .performance-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .performance-header .section-subtitle {
+      margin: 0 auto;
+      color: #CCCCCC;
+    }
+
+    .gtmetrix-card {
+      background: #242424;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 48px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .gtmetrix-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .gtmetrix-grade-box {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .grade-badge-a {
+      width: 96px;
+      height: 96px;
+      background: rgba(39, 201, 63, 0.12);
+      border: 2px solid #27C93F;
+      color: #27C93F;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: 60px;
+      font-weight: 900;
+      box-shadow: 0 0 35px rgba(39, 201, 63, 0.25);
+    }
+
+    .gtmetrix-scores {
+      display: flex;
+      gap: 40px;
+    }
+
+    .score-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .score-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888888;
+      margin-bottom: 6px;
+    }
+
+    .score-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 46px;
+      font-weight: 800;
+      color: #27C93F;
+      line-height: 1;
+    }
+
+    .gtmetrix-meta {
+      text-align: right;
+    }
+
+    .gtmetrix-meta-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      color: #FFFFFF;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .gtmetrix-meta-sub {
+      font-size: 13px;
+      color: #888888;
+    }
+
+    /* Web Vitals Grid */
+    .vitals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .vital-card {
+      background: #1A1A1A;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 18px;
+      padding: 26px 28px;
+      transition: transform 0.35s ease, border-color 0.35s ease;
+    }
+
+    .vital-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(39, 201, 63, 0.4);
+    }
+
+    .vital-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #888888;
+      margin-bottom: 10px;
+    }
+
+    .vital-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      color: #27C93F;
+    }
+
+    .vital-desc {
+      font-size: 13px;
+      color: #777777;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       SECTION 6: FOOTER
+       ========================================================================== */
+    .footer-section {
+      padding: 140px 0;
+      background-color: #1F1F1F;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-title {
+      font-size: 48px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+
+    .footer-subtitle {
+      font-size: 19px;
+      color: #AAAAAA;
+      max-width: 680px;
+      margin: 0 auto 42px;
+      line-height: 1.6;
+    }
+
+    .visit-site-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: #C06A2C;
+      color: #FFFFFF;
+      padding: 22px 52px;
+      border-radius: 100px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      box-shadow: 0 16px 45px rgba(192, 106, 44, 0.4);
+      text-decoration: none;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+    }
+
+    .visit-site-button:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 22px 60px rgba(192, 106, 44, 0.55);
+      background: #D47735;
+    }
+
+    .visit-site-button svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+    }
+
+    .footer-brand {
+      margin-top: 60px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      color: #666666;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       1. HERO SECTION (Clean Fundo Claro)
+       ========================================================================== -->
+  <section class="section section-light" id="hero">
+    <div class="container">
+      <div class="hero-header">
+        <p class="hero-subtitle">Brand Identity & Web Design Case Study</p>
+      </div>
+
+      <!-- Imagem Principal / Logo Fundo Claro -->
+      <div class="hero-image-wrapper">
+        <img src="log_fundo_claro.webp" alt="UNA TECNOLOGIA PREFABBRICATE — Logo Fundo Claro" class="hero-logo-img">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       2. ESTRUTURANDO A BASE VISUAL (Fundo Escuro)
+       ========================================================================== -->
+  <section class="section section-dark" id="brand-base">
+    <div class="container">
+
+      <!-- Layout Centralizado -->
+      <div class="brand-base-header">
+        <div class="badge badge-dark">01 // SISTEMA VISUAL</div>
+        <h2 class="section-title">Estruturando a Base Visual</h2>
+        <p class="section-subtitle">
+          Entendemos que um projeto digital forte precisa de uma base sólida para se sustentar. Como parte da fundação
+          para o desenvolvimento da plataforma web, estruturamos uma identidade visual coesa e alinhada. O objetivo foi
+          garantir que a percepção de robustez e tecnologia estivesse presente em cada ponto de contato desde o dia
+          zero.
+        </p>
+      </div>
+
+      <!-- Evolution Grid -->
+      <div class="base-evolution-grid">
+
+        <!-- Logo Final Space -->
+        <div class="evolution-logo-col">
+          <div class="logo-wrapper">
+            <img src="logo_fundo_escurio.webp" alt="Logo Final UNA TECNOLOGIA PREFABBRICATE" class="logo-img">
+          </div>
+        </div>
+
+        <!-- Cores Space -->
+        <div class="evolution-colors-col">
+          <div class="block-card-title">
+            Paleta de Cores
+            <span>5 TONS MARCA</span>
+          </div>
+
+          <div class="color-swatches-grid">
+            <!-- Swatch 1: Fundo Escuro -->
+            <div class="swatch-item">
+              <div class="swatch-color" style="background-color: #2E2E2E;"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Chumbo</div>
+                <div class="swatch-hex">#2E2E2E</div>
+              </div>
+            </div>
+
+            <!-- Swatch 2: Destaque Laranja -->
+            <div class="swatch-item">
+              <div class="swatch-color" style="background-color: #C06A2C;"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Telha</div>
+                <div class="swatch-hex">#C06A2C</div>
+              </div>
+            </div>
+
+            <!-- Swatch 3: Off-White -->
+            <div class="swatch-item">
+              <div class="swatch-color" style="background-color: #F7F6F2; border-bottom: 1px solid #E0E0E0;"></div>
+              <div class="swatch-info">
+                <div class="swatch-name" style="color: #FFFFFF;">Off-White</div>
+                <div class="swatch-hex">#F7F6F2</div>
+              </div>
+            </div>
+
+            <!-- Swatch 4: Texto Escuro -->
+            <div class="swatch-item">
+              <div class="swatch-color" style="background-color: #1A1A1A;"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Carbono</div>
+                <div class="swatch-hex">#1A1A1A</div>
+              </div>
+            </div>
+
+            <!-- Swatch 5: Terra Secundário -->
+            <div class="swatch-item">
+              <div class="swatch-color" style="background-color: #8C4518;"></div>
+              <div class="swatch-info">
+                <div class="swatch-name">Terra</div>
+                <div class="swatch-hex">#8C4518</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tipografia Space -->
+        <div class="evolution-typo-col">
+          <div class="block-card-title">
+            Tipografia Oficial
+            <span>PAIRING</span>
+          </div>
+
+          <div class="typo-specimen-box">
+            <div class="typo-title-specimen">Outfit</div>
+            <div class="typo-title-sub">Títulos & Display — ExtraBold / Black</div>
+
+            <div class="typo-body-specimen">
+              Nunito Sans — Parágrafos & Textos de Apoio com alta legibilidade e clareza.
+            </div>
+            <div class="typo-body-sub">Corpo de Texto — Regular & SemiBold</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       3. CONCEITO E VARIAÇÕES DA MARCA (Fundo Claro)
+       ========================================================================== -->
+  <section class="section section-light" id="genesis">
+    <div class="container">
+      <div class="genesis-grid">
+
+        <!-- Coluna Texto -->
+        <div class="genesis-content">
+          <div class="badge badge-light">02 // ARQUITETURA DA MARCA</div>
+          <h2 class="genesis-title">Construção em Blocos & Variações</h2>
+          <p class="genesis-text">
+            O logo foi desenvolvido pensando no conceito de blocos para reforçar a especialidade do cliente em
+            <strong>construções pré-fabricadas e engenharia modular</strong>. O primeiro protótipo foi desenhado a
+            caneta e posteriormente aprimorado e adaptado para ser utilizado com máxima flexibilidade em diferentes
+            situações.
+          </p>
+
+          <div class="genesis-meta-card">
+            <div class="meta-item">
+              <h5>Origem</h5>
+              <p>Protótipo a Caneta</p>
+            </div>
+            <div class="meta-item">
+              <h5>Conceito</h5>
+              <p>Estrutura em Blocos</p>
+            </div>
+            <div class="meta-item">
+              <h5>Versatilidade</h5>
+              <p>Variações de Marca</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Imagem -->
+        <div class="genesis-image-col">
+          <div class="genesis-image-wrapper">
+            <img src="logos.webp" alt="Variações do logo UNA TECNOLOGIA PREFABBRICATE" class="genesis-img">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       4. O PROJETO WEB & PERFORMANCE (Fundo Escuro)
+       ========================================================================== -->
+  <section class="section section-dark" id="web-project">
+    <div class="container">
+
+      <div class="web-project-header">
+        <div class="badge badge-dark">03 // PLATAFORMA DIGITAL</div>
+        <h2 class="section-title">Plataforma Digital & Presença Online</h2>
+        <p class="section-subtitle" style="text-align: center;">
+          Com a identidade visual consolidada, aplicamos cada decisão do sistema de marca na criação de uma presença
+          online. A interface traduz visualmente a solidez da <strong>UNA TECNOLOGIA PREFABBRICATE</strong>, unindo
+          arquitetura modular, tipografia otimizada e contraste refinado entre a paleta de cores
+          oficial para conduzir o usuário com clareza e autoridade.
+        </p>
+      </div>
+
+      <!-- Mockup da Plataforma Digital (527shots_so.png) -->
+      <div class="web-shots-wrapper">
+        <img src="527shots_so.png" alt="Plataforma Digital UNA TECNOLOGIA PREFABBRICATE — Mockup" class="web-shots-img">
+      </div>
+
+      <!-- Bloco de Performance & Otimização GTmetrix -->
+      <div class="performance-block">
+        <div class="performance-header">
+          <div class="badge badge-dark">OTIMIZAÇÃO & SPEED</div>
+          <h3 class="section-title" style="font-size: 42px;">Alta Performance & Otimização Técnica</h3>
+          <p class="section-subtitle">
+            Além do design a plataforma foi desenvolvida com o máximo cuidado em otimização web.
+            O resultado é um carregamento ultra-rápido, execução fluida e avaliação de topo nos testes globais de
+            velocidade do <strong>GTmetrix</strong>.
+          </p>
+        </div>
+
+        <!-- Dashboard GTmetrix UI -->
+        <div class="gtmetrix-card">
+          <div class="gtmetrix-top">
+            <div class="gtmetrix-grade-box">
+              <div class="grade-badge-a">A</div>
+              <div class="gtmetrix-scores">
+                <div class="score-item">
+                  <span class="score-label">Performance</span>
+                  <span class="score-value">99%</span>
+                </div>
+                <div class="score-item">
+                  <span class="score-label">Structure</span>
+                  <span class="score-value">98%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="gtmetrix-meta">
+              <div class="gtmetrix-meta-title">GTmetrix Performance Report</div>
+              <div class="gtmetrix-meta-sub">https://unatecnologia.com.br/</div>
+              <div class="gtmetrix-meta-sub" style="margin-top: 4px; opacity: 0.75;">Server: São Paulo, BR — Lighthouse
+                12.6.1</div>
+            </div>
+          </div>
+
+          <!-- Web Vitals Grid -->
+          <div class="vitals-grid">
+            <div class="vital-card">
+              <div class="vital-title">Largest Contentful Paint</div>
+              <div class="vital-value">802ms</div>
+              <div class="vital-desc">Carregamento do elemento principal em sub-segundo</div>
+            </div>
+
+            <div class="vital-card">
+              <div class="vital-title">Total Blocking Time</div>
+              <div class="vital-value">73ms</div>
+              <div class="vital-desc">Execução sem bloqueio de scripts ou travamentos</div>
+            </div>
+
+            <div class="vital-card">
+              <div class="vital-title">Cumulative Layout Shift</div>
+              <div class="vital-value">0</div>
+              <div class="vital-desc">Estabilidade visual perfeita sem deslocamento de tela</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       6. FOOTER & CONVITE
+       ========================================================================== -->
+  <footer class="footer-section">
+    <div class="container">
+      <h2 class="footer-title">Obrigado por visualizar</h2>
+      <p class="footer-subtitle">
+        Acesse a plataforma oficial e confira a experiência completa.
+      </p>
+
+      <a href="https://unatecnologia.com.br" target="_blank" rel="noopener noreferrer" class="visit-site-button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+        <span>www.unatecnologia.com.br</span>
+      </a>
+
+      <div class="footer-brand">
+        desenvolvido por <strong>ARTD-Studio</strong> © CASE STUDY
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
